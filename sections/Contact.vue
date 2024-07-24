@@ -41,14 +41,14 @@
 				<button
 					id="contact-button"
 					v-auto-animate
-					class="px-4 py-2 mt-10 text-slate-200 rounded-lg border-2 font-mono my-button transition-all duration-500 mx-auto w-52"
+					class="px-4 py-2 mt-10 text-slate-200 rounded-lg border-2 font-mono my-button transition-all duration-500 mx-auto w-52 hover:scale-105"
 					@click="sendMessage()"
 					v-html="
 						!isLoading && !isMessageSent
 							? 'Send message!'
 							: isLoading
-							? 'Loading...'
-							: 'Message sent!'
+							? `Loading...`
+							: `Message sent!`
 					"
 				></button>
 			</div>

@@ -33,10 +33,21 @@
 					:key="selectedExperience + '-' + index"
 					class="flex flex-row experience-text"
 				>
-					<div class="text-primary mx-4">▹</div>
-					<p class="mb-4">
-						{{ text }}
-					</p>
+					<template v-if="index == 0">
+						<div class="text-primary mx-4 hide">▹</div>
+						<p
+							class="mb-4 text-slate-200 text-2xl font-bold font-mono"
+							v-html="text"
+						></p>
+					</template>
+					<template v-if="index == 1">
+						<div class="text-primary mx-4 hide">▹</div>
+						<p class="mb-4 text-md font-mono" v-html="text"></p>
+					</template>
+					<template v-if="index > 1">
+						<div class="text-primary mx-4">▹</div>
+						<p class="mb-4" v-html="text"></p>
+					</template>
 				</div>
 			</div>
 		</div>
@@ -49,22 +60,29 @@
 	// Work experience array
 	const experience = ref({
 		consiliumbots: [
-			'Developed a chatbot thingy for cb',
-			'Designed and implemented a chatbot builder with a drag-and-drop interface. for cb',
-			'Developed a chatbot platform for businesses to automate customer service. for cb',
-			'Designed and implemented a chatbot builder with a drag-and-drop interface. for cb',
+			'Software developer @Consiliumbots',
+			'December 2021 - September 2023',
+			"Contributed in <span class='text-primary'>developing high-quality front-end informative primers</span> for students who recently took the PTU test (later PAES) and <span class='text-primary'>developed Python testing scripts</span> due to it's high demand in a very short period of time.",
+			"Contributed in project MIME/Explorer, a <span class='text-primary'>web-based platform</span> that allows students and parents to <span class='text-primary'>explore and learn about different schools</span>.",
+			'Collaborated in the development of DFM, platform that allows students to explore different career paths and learn about different professions, while reducing school exclusion and opening opportunities to access higher education.',
+			"Contributed in the <span class='text-primary'>development of a Chatbot</span>, tool that allowed students to ask questions about their future careers and get answers in real time, integrating it with OpenAI.",
 		],
 		witsby: [
-			'Developed a chatbot platform for businesses to automate customer service. for with',
-			'Designed and implemented a chatbot builder with a drag-and-drop interface.',
+			'Software developer @Witsby',
+			'March 2022 - August 2022',
+			"Participated in the <span class='text-primary'>development of a mobile application using React Native </span>, with a particular emphasis on enhancing the mobile front end. Work conducted as part of a collaborative partnership between the university and industry.",
 		],
 		ecorima: [
-			'Developed a chatbot platform for businesses to automate customer service. for exo',
-			'Designed and implemented a chatbot builder with a drag-and-drop interface. for ex',
+			'Part-time Software developer @Ecorima',
+			'September 2023 - July 2024',
+			"<span class='text-primary'>Developed and mantained platform </span> to manage and register incomes and expenses of the company's projects. This including the front end and back end, as well as all the deployment.",
+			"Integrated platform with <span class='text-primary'>PDF reader</span>, allowing to automatically read and register the information of the company's invoices.",
 		],
 		isaviz: [
-			'Developed a chatbot platform for businesses to automate customer service. for isa',
-			'Designed and implemented a chatbot builder with a drag-and-drop interface. ofr isa',
+			'Software developer and cofounder @Isaviz',
+			'November 2023 - May 2024',
+			"Worked on <span class='text-primary'>platform development</span> for pricing, accreditation, sampling, test taking and management of reports n the laboratory testing area, focusing in the front-end.",
+			"Developed <span class='text-primary'>landing page</span> for the company's website.",
 		],
 	});
 

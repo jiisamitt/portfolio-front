@@ -10,7 +10,7 @@
 			<span class="text-primary text-nowrap">full-stack engineer</span>.
 		</h2>
 		<button
-			class="px-4 py-2 mt-10 text-slate-200 rounded-lg border-2 w-fit font-mono my-button transition duration-500"
+			class="px-4 py-2 mt-10 text-slate-200 rounded-lg border-2 w-fit font-mono my-button transition duration-500 hover:scale-105"
 			@click="downloadResume()"
 		>
 			Check Resume

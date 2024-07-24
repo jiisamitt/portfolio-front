@@ -119,7 +119,7 @@
 	import { useLayoutStore } from '../store/LayoutStore';
 
 	// sections array
-	const sections = ['about', 'experience', 'projects', 'contact'];
+	const sections = ['about', 'experience', /*'projects',*/ 'contact'];
 
 	// Active section state
 	const activeSection = ref('');
