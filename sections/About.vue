@@ -25,27 +25,24 @@
 			>
 				<p class="mb-4">
 					I printed my first "Hello World" back in
-					<span class="text-primary">2016</span>, marking the beginning of my
+					<span class="text-slate-200">2016</span>, marking the beginning of my
 					journey into the world of technology and programming. Since then, I
 					have immersed myself in learning various programming languages,
 					frameworks, and development tools, continuously expanding my knowledge
 					and honing my skills.
 				</p>
 				<p class="mb-4">
-					I am an <span class="text-primary">honest person</span> with a deep
+					I am an <span class="text-slate-200">honest person</span> with a deep
 					passion for contributing to society and generating a
-					<span class="text-primary">positive impact</span>. My curiosity and
+					<span class="text-slate-200">positive impact</span>. My curiosity and
 					enthusiasm for technology drive me to constantly challenge myself,
 					learn new things, and embrace the process of problem-solving.
 				</p>
 				<p class="">
-					In addition to my professional pursuits, I am an avid
-					<span class="text-primary">chess</span>
-					enthusiast, enjoy playing
-					<span class="text-primary">video games</span>
-
-					, and engage in any type of
-					<span class="text-primary">sports</span>.
+					In addition to my professional activities, I enjoy playing
+					<span class="text-primary">video games</span>, occasionally playing
+					<span class="text-primary">chess</span>, and love engaging in
+					different <span class="text-primary">sports</span>.
 				</p>
 			</div>
 			<div class="basis-1/3 flex justify-center items-center mt-10 lg:mt-0">

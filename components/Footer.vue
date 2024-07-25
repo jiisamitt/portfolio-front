@@ -91,8 +91,11 @@
 			"
 		>
 			<p>
-				Built by <span class="text-primary">Juan Isamitt</span> using
-				<span class="text-slate-200">Nuxt</span>,
+				Built by
+				<a class="text-primary" href="https://juanisamitt.com" target="_blank"
+					>Juan Isamitt</a
+				>
+				using <span class="text-slate-200">Nuxt</span>,
 				<span class="text-slate-200">Tailwind CSS</span> and deployed in
 				<span class="text-slate-200">Netlify</span>.
 			</p>

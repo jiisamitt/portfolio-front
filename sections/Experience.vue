@@ -59,7 +59,7 @@
 					</template>
 					<template v-if="index == 1">
 						<div class="text-primary mx-4 content-none pl-[14px]"></div>
-						<p class="mb-4 text-md font-mono" v-html="text"></p>
+						<p class="mb-4 text-md text-slate-600 font-mono" v-html="text"></p>
 					</template>
 					<template v-if="index > 1">
 						<div class="text-primary mx-4">▹</div>
@@ -80,29 +80,29 @@
 	// Work experience array
 	const experience = ref({
 		consiliumbots: [
-			'Software Engineer @Consiliumbots',
+			"Software Engineer <a class='text-primary' href='https://www.consiliumbots.com/' target='_blank'>@Consiliumbots</a>",
 			'December 2021 - September 2023',
-			"Contributed in <span class='text-primary'>developing high-quality front-end informative primers</span> for students who recently took the PTU test (later PAES) and <span class='text-primary'>developed Python testing scripts</span> due to it's high demand in a very short period of time.",
-			"Contributed in project MIME/Explorer, a <span class='text-primary'>web-based platform</span> that allows students and parents to <span class='text-primary'>explore and learn about different schools</span>.",
+			"Contributed in <span class='text-slate-200'>developing high-quality front-end informative primers</span> for students who recently took the PTU test (later PAES) and <span class='text-slate-200'>developed Python testing scripts</span> due to it's high demand in a very short period of time.",
+			"Contributed in project MIME/Explorer, a <span class='text-slate-200'>web-based platform</span> that allows students and parents to <span class='text-slate-200'>explore and learn about different schools</span>.",
 			'Collaborated in the development of DFM, platform that allows students to explore different career paths and learn about different professions, while reducing school exclusion and opening opportunities to access higher education.',
-			"Contributed in the <span class='text-primary'>development of a Chatbot</span>, tool that allowed students to ask questions about their future careers and get answers in real time, integrating it with OpenAI.",
+			"Contributed in the <span class='text-slate-200'>development of a Chatbot</span>, tool that allowed students to ask questions about their future careers and get answers in real time, integrating it with OpenAI.",
 		],
-		witsby: [
-			'Frontend Engineer @Witsby',
+		witby: [
+			"Frontend Engineer <a class='text-primary' href='https://www.linkedin.com/company/witby/about/' target='_blank'>@Witby</a>",
 			'March 2022 - August 2022',
-			"Participated in the <span class='text-primary'>development of a mobile application using React Native </span>, with a particular emphasis on enhancing the mobile front end. Work conducted as part of a collaborative partnership between the university and industry.",
+			"Participated in the <span class='text-slate-200'>development of a mobile application using React Native </span>, with a particular emphasis on enhancing the mobile front end. Work conducted as part of a collaborative partnership between the university and witby.",
 		],
 		ecorima: [
-			'Part-time Software Engineer @Ecorima',
+			"Part-time Software Engineer <a class='text-primary' href='https://ecorima.cl/' target='_blank'>@Ecorima</a>",
 			'September 2023 - July 2024',
-			"<span class='text-primary'>Developed and mantained platform </span> to manage and register incomes and expenses of the company's projects. This including the front end and back end, as well as all the deployment.",
-			"Integrated platform with <span class='text-primary'>PDF reader</span>, allowing to automatically read and register the information of the company's invoices.",
+			"<span class='text-slate-200'>Developed and mantained platform </span> to manage and register incomes and expenses of the company's projects. This including the front end and back end, as well as all the deployment.",
+			"Integrated platform with <span class='text-slate-200'>PDF reader</span>, allowing to automatically read and register the information of the company's invoices.",
 		],
 		isaviz: [
-			'Software Engineer and Cofounder @Isaviz',
+			"Software Engineer and Cofounder <a class='text-slate-200'>@Isaviz</a>",
 			'November 2023 - May 2024',
-			"Worked on <span class='text-primary'>platform development</span> for pricing, accreditation, sampling, test taking and management of reports n the laboratory testing area, focusing in the front-end.",
-			"Developed <span class='text-primary'>landing page</span> for the company's website.",
+			"Worked on <a class='text-primary' href='https://www.precirelab.cl/home' target='_blank'>platform development</a> for pricing, accreditation, sampling, test taking and management of reports in the laboratory testing area, focusing in the front-end.",
+			"Developed <a class='text-primary' href='https://www.precirelab.cl/login' target='_blank'>landing page</a> for the company's website.",
 		],
 	});
 
