@@ -1,11 +1,34 @@
 <template>
-	<div ref="main" class="h-screen flex flex-col justify-center px-32">
-		<p class="text-slate-400 text-2xl font-mono">Hey, my name is</p>
-		<h1 class="mt-3 text-6xl font-semibold text-slate-200">Juan Isamitt</h1>
+	<div
+		ref="main"
+		class="h-screen flex flex-col justify-center"
+		:class="layoutStore.screenSize == ('mobile' || 'tablet') ? '' : 'px-32'"
+	>
+		<p
+			class="text-slate-400 font-mono"
+			:class="layoutStore.screenSize == 'mobile' ? 'text-lg' : 'text-2xl'"
+		>
+			Hey, my name is
+		</p>
+		<h1
+			class="font-semibold text-slate-200"
+			:class="
+				layoutStore.screenSize == 'mobile' ? 'text-4xl mt-1' : 'mt-3 text-6xl'
+			"
+		>
+			Juan Isamitt
+		</h1>
 		<!--
 		<h2 class="mt-3 text-lg text-slate-200">Software Engineer</h2>
 		-->
-		<h2 class="mt-4 text-3xl text-slate-300 w-4/5 font-semibold">
+		<h2
+			class="mt-4 text-slate-300 font-semibold"
+			:class="
+				layoutStore.screenSize == 'mobile'
+					? 'w-full text-md mt-2'
+					: 'mt-4 w-4/5 text-3xl'
+			"
+		>
 			I create seamless, dynamic, and powerful web solutions as a
 			<span class="text-primary text-nowrap">full-stack engineer</span>.
 		</h2>
@@ -18,7 +41,17 @@
 	</div>
 	<About class="py-60" id="about" />
 	<Experience class="py-60 mx-32" id="experience" />
-	<Contact class="pt-40 pb-40" id="contact" />
+	<Contact
+		class="pt-40 pb-40"
+		:class="
+			layoutStore.screenSize == 'mobile'
+				? ''
+				: layoutStore.screenSize == 'tablet'
+				? 'mx-20'
+				: 'mx-52'
+		"
+		id="contact"
+	/>
 </template>
 
 <script setup>

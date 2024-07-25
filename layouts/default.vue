@@ -6,7 +6,10 @@
 		<nav class="flex w-full justify-between">
 			<div class="text-lg text-slate-200 font-semibold font-mono">JI</div>
 			<div class="text-m font-mono">
-				<ol class="flex gap-8">
+				<ol
+					class="flex gap-8"
+					v-if="layoutStore.screenSize == ('desktop' || 'tablet')"
+				>
 					<li
 						v-for="section in sections"
 						:key="section"
@@ -17,15 +20,27 @@
 						{{ section.charAt(0).toUpperCase() + section.slice(1) }}
 					</li>
 				</ol>
+				<div v-if="layoutStore.screenSize == 'mobile'">
+					<svg
+						xmlns="http://www.w3.org/2000/svg"
+						fill="none"
+						viewBox="0 0 24 24"
+						stroke-width="1.5"
+						stroke="currentColor"
+						class="size-6 fill-slate-200"
+					>
+						<path
+							stroke-linecap="round"
+							stroke-linejoin="round"
+							d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"
+						/>
+					</svg>
+				</div>
 			</div>
 		</nav>
 	</header>
-	<div class="flex mx-auto px-20 min-h-screen max-w-7xl">
-		<div class="content flex-1">
-			<div class="flex-none">
-				<slot />
-			</div>
-		</div>
+	<div class="mx-auto px-20 min-h-screen max-w-7xl">
+		<slot />
 	</div>
 	<footer
 		class="flex flex-col text-slate-400 font-mono text-sm py-10 px-20 text-center w-full"

@@ -1,5 +1,5 @@
 <template>
-	<div class="flex flex-col mx-64">
+	<div class="flex flex-col">
 		<!-- pretty card -->
 		<div
 			class="rounded-xl border-2 border-slate-400 bg-secondary py-8 px-20 shadow-lg"
