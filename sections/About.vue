@@ -53,7 +53,9 @@
 				<div
 					class="relative z-0 bg-primary rounded-2xl overflow-hidden"
 					:class="
-						['mobile', 'tablet'].includes(layoutStore.screenSize)
+						layoutStore.screenSize == 'mobile'
+							? 'w-3/5'
+							: layoutStore.screenSize == 'tablet'
 							? 'w-2/5'
 							: 'w-full'
 					"

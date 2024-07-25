@@ -41,7 +41,7 @@
 			Check Resume
 		</button>
 	</div>
-	<About class="hide" id="about" />
+	<About class="hide py-20" id="about" />
 	<Experience
 		class="hide"
 		:class="

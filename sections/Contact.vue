@@ -2,12 +2,18 @@
 	<div class="flex flex-col">
 		<!-- pretty card -->
 		<div
-			class="rounded-xl border-2 border-slate-400 bg-secondary py-8 px-20 shadow-lg"
+			class="rounded-xl border-2 border-slate-400 bg-secondary py-8 shadow-lg"
+			:class="layoutStore.screenSize == 'mobile' ? 'px-4' : 'px-20'"
 			style="box-shadow: 0 0 30px 0 rgba(0, 0, 0, 0.489)"
 		>
 			<!-- title -->
 			<h2
-				class="text-3xl text-slate-200 font-semibold font-mono title mb-4 text-left"
+				class="text-slate-200 font-semibold font-mono title mb-4"
+				:class="
+					layoutStore.screenSize == 'mobile'
+						? 'text-2xl text-center'
+						: 'text-3xl text-left'
+				"
 			>
 				<span class="text-primary"><</span
 				><span class="text-slate-200">ContactMe</span
@@ -15,7 +21,12 @@
 			</h2>
 
 			<div class="flex flex-col">
-				<p class="mb-4 text-slate-400 text-left">
+				<p
+					class="mb-4 text-slate-400"
+					:class="
+						layoutStore.screenSize == 'mobile' ? 'text-center' : 'text-left'
+					"
+				>
 					Feel free to reach out to me for any inquiries, collaborations, or
 					just to say hi! You can send me an email at
 					<span class="text-primary">
@@ -58,7 +69,12 @@
 <script setup>
 	import { ref } from 'vue';
 	import emailjs from '@emailjs/browser';
+	import { useLayoutStore } from '../store/LayoutStore';
 
+	// Store
+	const layoutStore = useLayoutStore();
+
+	// Data
 	const email = ref('');
 	const message = ref('');
 	const SERVICE_ID = 'service_f0t4zx8';

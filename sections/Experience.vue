@@ -7,17 +7,34 @@
 		</h2>
 
 		<!-- line filler -->
-		<div class="flex flex-row bg-secondary">
-			<div class="basis-1/5 flex flex-col">
+		<div
+			class="flex bg-secondary"
+			:class="
+				layoutStore.screenSize == 'mobile' ? 'flex-col gap-10' : 'flex-row'
+			"
+		>
+			<div
+				class="basis-1/5 flex"
+				:class="
+					layoutStore.screenSize == 'mobile'
+						? 'flex-row overflow-x-auto gap-4'
+						: 'flex-col'
+				"
+			>
 				<!-- timeline-->
 				<div v-for="(exp, key) in experience" :key="key" class="font-mono">
 					<button
 						@click="setSelectedExperience(key)"
-						:class="{
-							'text-primary border-primary': selectedExperience === key,
-							'text-slate-400 ': selectedExperience !== key,
-						}"
-						class="capitalize w-full text-left border-l-2 pl-6 py-2 hover:text-slate-200 transition-{border-color} duration-500 hover:border-slate-400 hover:bg-[#ffffff09] rounded-r-lg"
+						:class="[
+							{
+								'text-primary border-primary': selectedExperience === key,
+								'text-slate-400': selectedExperience !== key,
+							},
+							layoutStore.screenSize !== 'mobile'
+								? 'hover:border-slate-400 hover:bg-[#ffffff09] hover:text-slate-200'
+								: '',
+						]"
+						class="capitalize w-full text-left border-l-2 pl-6 py-2 transition-{border-color} duration-500 rounded-r-lg"
 					>
 						{{ key }}
 					</button>
@@ -56,11 +73,14 @@
 
 <script setup>
 	import { ref } from 'vue';
+	import { useLayoutStore } from '../store/LayoutStore';
+
+	const layoutStore = useLayoutStore();
 
 	// Work experience array
 	const experience = ref({
 		consiliumbots: [
-			'Software developer @Consiliumbots',
+			'Software Engineer @Consiliumbots',
 			'December 2021 - September 2023',
 			"Contributed in <span class='text-primary'>developing high-quality front-end informative primers</span> for students who recently took the PTU test (later PAES) and <span class='text-primary'>developed Python testing scripts</span> due to it's high demand in a very short period of time.",
 			"Contributed in project MIME/Explorer, a <span class='text-primary'>web-based platform</span> that allows students and parents to <span class='text-primary'>explore and learn about different schools</span>.",
@@ -68,18 +88,18 @@
 			"Contributed in the <span class='text-primary'>development of a Chatbot</span>, tool that allowed students to ask questions about their future careers and get answers in real time, integrating it with OpenAI.",
 		],
 		witsby: [
-			'Software developer @Witsby',
+			'Frontend Engineer @Witsby',
 			'March 2022 - August 2022',
 			"Participated in the <span class='text-primary'>development of a mobile application using React Native </span>, with a particular emphasis on enhancing the mobile front end. Work conducted as part of a collaborative partnership between the university and industry.",
 		],
 		ecorima: [
-			'Part-time Software developer @Ecorima',
+			'Part-time Software Engineer @Ecorima',
 			'September 2023 - July 2024',
 			"<span class='text-primary'>Developed and mantained platform </span> to manage and register incomes and expenses of the company's projects. This including the front end and back end, as well as all the deployment.",
 			"Integrated platform with <span class='text-primary'>PDF reader</span>, allowing to automatically read and register the information of the company's invoices.",
 		],
 		isaviz: [
-			'Software developer and cofounder @Isaviz',
+			'Software Engineer and Cofounder @Isaviz',
 			'November 2023 - May 2024',
 			"Worked on <span class='text-primary'>platform development</span> for pricing, accreditation, sampling, test taking and management of reports n the laboratory testing area, focusing in the front-end.",
 			"Developed <span class='text-primary'>landing page</span> for the company's website.",

@@ -1,9 +1,9 @@
 <template>
 	<header
-		class="flex items-center w-screen justify-between nav-bar h-20 mx-auto px-20 fixed z-20"
+		class="flex items-center w-screen justify-between nav-bar mx-auto fixed z-20"
 		:class="[
 			scrolledDown ? 'scroll-down h-16' : 'h-20',
-			layoutStore.screenSize === 'mobile' ? 'px-10' : 'px-20',
+			layoutStore.screenSize === 'mobile' ? 'px-8' : 'px-20',
 		]"
 		v-auto-animate="{ duration: 300 }"
 	>
@@ -69,6 +69,7 @@
 			<li
 				v-for="section in sections"
 				:key="section"
+				:class="{ active: activeSection === section }"
 				class="transition duration-500 cursor-pointer text-slate-400 hover:text-slate-200 text-2xl mb-4"
 				@click="setActiveSection(section)"
 			>
@@ -78,7 +79,7 @@
 	</div>
 	<div
 		class="mx-auto min-h-screen max-w-7xl"
-		:class="layoutStore.screenSize == 'mobile' ? 'px-10' : 'px-20'"
+		:class="layoutStore.screenSize == 'mobile' ? 'px-8' : 'px-20'"
 	>
 		<slot />
 		<Footer />
