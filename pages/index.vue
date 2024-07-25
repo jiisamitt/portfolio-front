@@ -1,8 +1,10 @@
 <template>
 	<div
 		ref="main"
-		class="h-screen flex flex-col justify-center"
-		:class="layoutStore.screenSize == ('mobile' || 'tablet') ? '' : 'px-32'"
+		class="h-screen flex flex-col justify-center hide mb-2"
+		:class="
+			['mobile', 'tablet'].includes(layoutStore.screenSize) ? '' : 'px-32'
+		"
 	>
 		<p
 			class="text-slate-400 font-mono"
@@ -39,16 +41,26 @@
 			Check Resume
 		</button>
 	</div>
-	<About class="py-60" id="about" />
-	<Experience class="py-60 mx-32" id="experience" />
-	<Contact
-		class="pt-40 pb-40"
+	<About class="hide" id="about" />
+	<Experience
+		class="hide"
 		:class="
 			layoutStore.screenSize == 'mobile'
-				? ''
+				? 'py-20'
 				: layoutStore.screenSize == 'tablet'
-				? 'mx-20'
-				: 'mx-52'
+				? 'mx-20 py-40'
+				: 'mx-32 py-60'
+		"
+		id="experience"
+	/>
+	<Contact
+		class="hide"
+		:class="
+			layoutStore.screenSize == 'mobile'
+				? 'py-20'
+				: layoutStore.screenSize == 'tablet'
+				? 'mx-20 py-20'
+				: 'mx-52 py-40'
 		"
 		id="contact"
 	/>
@@ -123,6 +135,20 @@
 	onMounted(() => {
 		window.scrollTo(0, 0);
 		//window.addEventListener('scroll', checkSection);
+
+		// Get all sections hidden, then show them when you scroll through them
+		const hiddenElements = document.querySelectorAll('.hide');
+		const observer = new IntersectionObserver((entries) => {
+			entries.forEach((entry) => {
+				if (entry.isIntersecting) {
+					entry.target.classList.remove('hide');
+					entry.target.classList.add('show');
+				}
+			});
+		});
+		hiddenElements.forEach((element) => {
+			observer.observe(element);
+		});
 	});
 </script>
 <style>
@@ -140,5 +166,23 @@
 		/* pointer */
 		cursor: auto;
 		pointer-events: none;
+	}
+	.hide {
+		opacity: 0;
+		transition: opacity 1s ease-in-out;
+	}
+	.show {
+		opacity: 1 !important;
+		transition: opacity 1s ease-in-out;
+	}
+
+	@keyframes fadeIn {
+		/* Transition */
+		from {
+			opacity: 0;
+		}
+		to {
+			opacity: 1;
+		}
 	}
 </style>

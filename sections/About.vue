@@ -10,7 +10,7 @@
 		<div
 			class="flex"
 			:class="
-				layoutStore.screenSize == ('mobile' || 'tablet')
+				['mobile', 'tablet'].includes(layoutStore.screenSize)
 					? 'flex-col'
 					: 'flex-row'
 			"
@@ -18,7 +18,7 @@
 			<div
 				class="text-slate-400"
 				:class="
-					layoutStore.screenSize == ('mobile' || 'tablet')
+					['mobile', 'tablet'].includes(layoutStore.screenSize)
 						? ''
 						: 'basis-2/3 pr-20'
 				"
@@ -36,16 +36,16 @@
 					passion for contributing to society and generating a
 					<span class="text-primary">positive impact</span>. My curiosity and
 					enthusiasm for technology drive me to constantly challenge myself,
-					learn new things, and embrace the process of problem-solving. I
-					believe that technology, when used responsibly, has the power to drive
-					significant changes to society.
+					learn new things, and embrace the process of problem-solving.
 				</p>
 				<p class="">
 					In addition to my professional pursuits, I am an avid
-					<span class="text-primary">video game</span> enthusiast, enjoy playing
-					<span class="text-primary">chess,</span> and engage in various
-					<span class="text-primary">sports</span>. These hobbies provide
-					balance and enrich my perspective in both life and work.
+					<span class="text-primary">chess</span>
+					enthusiast, enjoy playing
+					<span class="text-primary">video games</span>
+
+					, and engage in any type of
+					<span class="text-primary">sports</span>.
 				</p>
 			</div>
 			<div class="basis-1/3 flex justify-center items-center mt-10 lg:mt-0">
@@ -53,7 +53,7 @@
 				<div
 					class="relative z-0 bg-primary rounded-2xl overflow-hidden"
 					:class="
-						layoutStore.screenSize == ('mobile' || 'tablet')
+						['mobile', 'tablet'].includes(layoutStore.screenSize)
 							? 'w-2/5'
 							: 'w-full'
 					"
@@ -76,6 +76,7 @@
 
 <script setup>
 	import { useLayoutStore } from '../store/LayoutStore';
+	import Tooltip from '../components/Tooltip.vue'; // Import the Popup component
 
 	const layoutStore = useLayoutStore();
 </script>

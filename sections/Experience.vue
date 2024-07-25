@@ -7,7 +7,7 @@
 		</h2>
 
 		<!-- line filler -->
-		<div class="flex flex-row">
+		<div class="flex flex-row bg-secondary">
 			<div class="basis-1/5 flex flex-col">
 				<!-- timeline-->
 				<div v-for="(exp, key) in experience" :key="key" class="font-mono">
@@ -17,7 +17,7 @@
 							'text-primary border-primary': selectedExperience === key,
 							'text-slate-400 ': selectedExperience !== key,
 						}"
-						class="capitalize w-full text-left border-l-2 pl-6 py-2 hover:text-slate-200 transition-{border-color} duration-500"
+						class="capitalize w-full text-left border-l-2 pl-6 py-2 hover:text-slate-200 transition-{border-color} duration-500 hover:border-slate-400 hover:bg-[#ffffff09] rounded-r-lg"
 					>
 						{{ key }}
 					</button>
@@ -34,14 +34,14 @@
 					class="flex flex-row experience-text"
 				>
 					<template v-if="index == 0">
-						<div class="text-primary mx-4 hide">▹</div>
+						<div class="text-primary mx-4 content-none pl-[14px]"></div>
 						<p
 							class="mb-4 text-slate-200 text-2xl font-bold font-mono"
 							v-html="text"
 						></p>
 					</template>
 					<template v-if="index == 1">
-						<div class="text-primary mx-4 hide">▹</div>
+						<div class="text-primary mx-4 content-none pl-[14px]"></div>
 						<p class="mb-4 text-md font-mono" v-html="text"></p>
 					</template>
 					<template v-if="index > 1">
@@ -98,7 +98,7 @@
 		setTimeout(() => {
 			selectedExperience.value = experience;
 			experienceText.classList.remove('hide');
-		}, 500);
+		}, 700);
 	};
 </script>
 
