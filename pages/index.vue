@@ -70,7 +70,7 @@
 	import About from '../sections/About.vue';
 	import Experience from '../sections/Experience.vue';
 	import Contact from '../sections/Contact.vue';
-	import resume from '@/assets/resume.pdf';
+	import resume from '@/assets/resume-english.pdf';
 	import { useLayoutStore } from '../store/LayoutStore';
 	import { watch, onMounted, ref } from 'vue';
 
