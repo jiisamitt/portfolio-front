@@ -46,7 +46,7 @@
 						@mouseleave="showVideoGame = false"
 					>
 						<span
-							v-if="showVideoGame"
+							v-show="showVideoGame"
 							class="absolute bg-secondary bottom-6 left-[50%] transform -translate-x-1/2 border-2 border-slate-400 px-3 pt-3 pb-1 rounded-lg max-w-32 text-center"
 						>
 							<img src="@/assets/game.jpeg" alt="Dynamic Image" />
@@ -62,7 +62,7 @@
 						@mouseleave="showChess = false"
 					>
 						<span
-							v-if="showChess"
+							v-show="showChess"
 							class="absolute bg-secondary bottom-6 left-[50%] transform -translate-x-1/2 border-2 border-slate-400 px-3 pt-3 pb-1 rounded-lg max-w-32 text-center"
 						>
 							<img src="@/assets/chess.png" alt="Dynamic Image" />
@@ -78,7 +78,7 @@
 						@mouseleave="showSports = false"
 					>
 						<span
-							v-if="showSports"
+							v-show="showSports"
 							class="absolute bg-secondary bottom-6 left-[50%] transform -translate-x-1/2 border-2 border-slate-400 px-3 pt-3 pb-1 rounded-lg max-w-32 text-center"
 						>
 							<img src="@/assets/nature.jpeg" alt="Dynamic Image" />
