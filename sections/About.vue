@@ -40,9 +40,53 @@
 				</p>
 				<p class="">
 					In addition to my professional activities, I enjoy playing
-					<span class="text-primary">video games</span>, occasionally playing
-					<span class="text-primary">chess</span>, and love engaging in
-					different <span class="text-primary">sports</span>.
+					<span
+						class="text-primary relative"
+						@mouseover="showVideoGame = true"
+						@mouseleave="showVideoGame = false"
+					>
+						<span
+							v-if="showVideoGame"
+							class="absolute bg-secondary bottom-6 left-[50%] transform -translate-x-1/2 border-2 border-slate-400 px-3 pt-3 pb-1 rounded-lg max-w-32 text-center"
+						>
+							<img src="@/assets/game.jpeg" alt="Dynamic Image" />
+							<span class="text-slate-400 mt-2 text-sm whitespace-nowrap"
+								>Playing osrs!</span
+							>
+						</span>
+						videogames</span
+					>, occasionally playing
+					<span
+						class="text-primary relative"
+						@mouseover="showChess = true"
+						@mouseleave="showChess = false"
+					>
+						<span
+							v-if="showChess"
+							class="absolute bg-secondary bottom-6 left-[50%] transform -translate-x-1/2 border-2 border-slate-400 px-3 pt-3 pb-1 rounded-lg max-w-32 text-center"
+						>
+							<img src="@/assets/chess.png" alt="Dynamic Image" />
+							<p class="text-slate-400 mt-2 text-sm whitespace-nowrap">
+								Playing chess!
+							</p>
+						</span>
+						chess</span
+					>, and love engaging in different
+					<span
+						class="text-primary relative"
+						@mouseover="showSports = true"
+						@mouseleave="showSports = false"
+					>
+						<span
+							v-if="showSports"
+							class="absolute bg-secondary bottom-6 left-[50%] transform -translate-x-1/2 border-2 border-slate-400 px-3 pt-3 pb-1 rounded-lg max-w-32 text-center"
+						>
+							<img src="@/assets/nature.jpeg" alt="Dynamic Image" />
+							<p class="text-slate-400 mt-2 text-sm whitespace-nowrap">
+								I like nature
+							</p> </span
+						>activites</span
+					>.
 				</p>
 			</div>
 			<div class="basis-1/3 flex justify-center items-center mt-10 lg:mt-0">
@@ -75,7 +119,10 @@
 
 <script setup>
 	import { useLayoutStore } from '../store/LayoutStore';
-	import Tooltip from '../components/Tooltip.vue'; // Import the Popup component
+
+	const showVideoGame = ref(false);
+	const showChess = ref(false);
+	const showSports = ref(false);
 
 	const layoutStore = useLayoutStore();
 </script>

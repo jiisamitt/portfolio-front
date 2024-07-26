@@ -7,6 +7,7 @@ export default defineNuxtConfig({
 		head: {
 			title: 'Juan Isamitt',
 		},
+		baseURL: '/',
 	},
 
 	compatibilityDate: '2024-07-10',
