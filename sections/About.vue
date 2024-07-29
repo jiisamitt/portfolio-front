@@ -39,9 +39,9 @@
 					learn new things, and embrace the process of problem-solving.
 				</p>
 				<p class="">
-					In addition to my professional activities, I enjoy playing
+					In addition to my professional activities, I enjoy
 					<span
-						class="text-primary relative"
+						class="text-primary relative whitespace-nowrap"
 						@mouseover="showVideoGame = true"
 						@mouseleave="showVideoGame = false"
 					>
@@ -50,14 +50,14 @@
 							class="absolute bg-secondary bottom-6 left-[50%] transform -translate-x-1/2 border-2 border-slate-400 px-3 pt-3 pb-1 rounded-lg max-w-32 text-center"
 						>
 							<img src="@/assets/game.jpeg" alt="Dynamic Image" />
-							<span class="text-slate-400 mt-2 text-sm whitespace-nowrap"
-								>Playing osrs!</span
-							>
+							<span class="text-slate-400 mt-2 text-sm whitespace-nowrap">
+								Osrs noob
+							</span>
 						</span>
-						videogames</span
-					>, occasionally playing
+						playing videogames</span
+					>, occasionally
 					<span
-						class="text-primary relative"
+						class="text-primary relative whitespace-nowrap"
 						@mouseover="showChess = true"
 						@mouseleave="showChess = false"
 					>
@@ -66,14 +66,14 @@
 							class="absolute bg-secondary bottom-6 left-[50%] transform -translate-x-1/2 border-2 border-slate-400 px-3 pt-3 pb-1 rounded-lg max-w-32 text-center"
 						>
 							<img src="@/assets/chess.png" alt="Dynamic Image" />
-							<p class="text-slate-400 mt-2 text-sm whitespace-nowrap">
-								Playing chess!
-							</p>
+							<span class="text-slate-400 mt-2 text-sm whitespace-nowrap">
+								Chess match!
+							</span>
 						</span>
-						chess</span
-					>, and love engaging in different
+						playing chess</span
+					>, and love engaging in
 					<span
-						class="text-primary relative"
+						class="text-primary relative whitespace-nowrap"
 						@mouseover="showSports = true"
 						@mouseleave="showSports = false"
 					>
@@ -82,11 +82,12 @@
 							class="absolute bg-secondary bottom-6 left-[50%] transform -translate-x-1/2 border-2 border-slate-400 px-3 pt-3 pb-1 rounded-lg max-w-32 text-center"
 						>
 							<img src="@/assets/nature.jpeg" alt="Dynamic Image" />
-							<p class="text-slate-400 mt-2 text-sm whitespace-nowrap">
+							<span class="text-slate-400 mt-2 text-sm whitespace-nowrap">
 								I like nature
-							</p> </span
-						>activites</span
-					>.
+							</span> </span
+						>different activites</span
+					>
+					in myfree time.
 				</p>
 			</div>
 			<div class="basis-1/3 flex justify-center items-center mt-10 lg:mt-0">
