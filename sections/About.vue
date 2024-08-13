@@ -87,7 +87,7 @@
 							</span> </span
 						>different activites</span
 					>
-					in myfree time.
+					in my free time.
 				</p>
 			</div>
 			<div class="basis-1/3 flex justify-center items-center mt-10 lg:mt-0">
