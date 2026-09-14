@@ -45,15 +45,17 @@
 						@mouseover="showVideoGame = true"
 						@mouseleave="showVideoGame = false"
 					>
-						<span
-							v-show="showVideoGame"
-							class="absolute bg-secondary bottom-6 left-[50%] transform -translate-x-1/2 border-2 border-slate-400 px-3 pt-3 pb-1 rounded-lg max-w-32 text-center"
-						>
-							<img src="@/assets/game.jpeg" alt="Dynamic Image" />
-							<span class="text-slate-400 mt-2 text-sm whitespace-nowrap">
-								Osrs noob
+						<Transition name="hobby-tip">
+							<span
+								v-if="showVideoGame"
+								class="hobby-tip absolute bg-secondary bottom-6 left-1/2 border-2 border-slate-400 px-3 pt-3 pb-1 rounded-lg max-w-32 text-center z-10"
+							>
+								<img src="@/assets/game.jpeg" alt="Dynamic Image" />
+								<span class="text-slate-400 mt-2 text-sm whitespace-nowrap">
+									Osrs noob
+								</span>
 							</span>
-						</span>
+						</Transition>
 						playing videogames</span
 					>, occasionally
 					<span
@@ -61,15 +63,17 @@
 						@mouseover="showChess = true"
 						@mouseleave="showChess = false"
 					>
-						<span
-							v-show="showChess"
-							class="absolute bg-secondary bottom-6 left-[50%] transform -translate-x-1/2 border-2 border-slate-400 px-3 pt-3 pb-1 rounded-lg max-w-32 text-center"
-						>
-							<img src="@/assets/chess.png" alt="Dynamic Image" />
-							<span class="text-slate-400 mt-2 text-sm whitespace-nowrap">
-								Chess match!
+						<Transition name="hobby-tip">
+							<span
+								v-if="showChess"
+								class="hobby-tip absolute bg-secondary bottom-6 left-1/2 border-2 border-slate-400 px-3 pt-3 pb-1 rounded-lg max-w-32 text-center z-10"
+							>
+								<img src="@/assets/chess.png" alt="Dynamic Image" />
+								<span class="text-slate-400 mt-2 text-sm whitespace-nowrap">
+									Chess match!
+								</span>
 							</span>
-						</span>
+						</Transition>
 						playing chess</span
 					>, and love engaging in
 					<span
@@ -77,15 +81,18 @@
 						@mouseover="showSports = true"
 						@mouseleave="showSports = false"
 					>
-						<span
-							v-show="showSports"
-							class="absolute bg-secondary bottom-6 left-[50%] transform -translate-x-1/2 border-2 border-slate-400 px-3 pt-3 pb-1 rounded-lg max-w-32 text-center"
-						>
-							<img src="@/assets/nature.jpeg" alt="Dynamic Image" />
-							<span class="text-slate-400 mt-2 text-sm whitespace-nowrap">
-								I like nature
-							</span> </span
-						>different activites</span
+						<Transition name="hobby-tip">
+							<span
+								v-if="showSports"
+								class="hobby-tip absolute bg-secondary bottom-6 left-1/2 border-2 border-slate-400 px-3 pt-3 pb-1 rounded-lg max-w-32 text-center z-10"
+							>
+								<img src="@/assets/nature.jpeg" alt="Dynamic Image" />
+								<span class="text-slate-400 mt-2 text-sm whitespace-nowrap">
+									I like nature
+								</span>
+							</span>
+						</Transition>
+						different activites</span
 					>
 					in my free time.
 				</p>
@@ -131,5 +138,26 @@
 <style scoped>
 	.about {
 		height: 100%;
+	}
+
+	.hobby-tip {
+		transform: translateX(-50%);
+	}
+
+	.hobby-tip-enter-active,
+	.hobby-tip-leave-active {
+		transition: opacity 0.35s ease, transform 0.35s ease;
+	}
+
+	.hobby-tip-enter-from,
+	.hobby-tip-leave-to {
+		opacity: 0;
+		transform: translateX(-50%) translateY(8px) scale(0.96);
+	}
+
+	.hobby-tip-enter-to,
+	.hobby-tip-leave-from {
+		opacity: 1;
+		transform: translateX(-50%) translateY(0) scale(1);
 	}
 </style>

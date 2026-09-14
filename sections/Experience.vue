@@ -77,37 +77,38 @@
 
 	const layoutStore = useLayoutStore();
 
-	// Work experience array
+	// Work experience array (most recent first)
 	const experience = ref({
-		consiliumbots: [
-			"Software Engineer <a class='text-primary' href='https://www.consiliumbots.com/' target='_blank'>@Consiliumbots</a>",
-			'December 2021 - September 2023',
-			"Contributed in <span class='text-slate-200'>developing high-quality front-end informative primers</span> for students who recently took the PTU test (later PAES) and <span class='text-slate-200'>developed Python testing scripts</span> due to it's high demand in a very short period of time.",
-			"Contributed in project MIME/Explorer, a <span class='text-slate-200'>web-based platform</span> that allows students and parents to <span class='text-slate-200'>explore and learn about different schools</span>.",
-			'Collaborated in the development of DFM, platform that allows students to explore different career paths and learn about different professions, while reducing school exclusion and opening opportunities to access higher education.',
-			"Contributed in the <span class='text-slate-200'>development of a Chatbot</span>, tool that allowed students to ask questions about their future careers and get answers in real time, integrating it with OpenAI.",
-		],
-		witby: [
-			"Frontend Engineer <a class='text-primary' href='https://www.linkedin.com/company/witby/about/' target='_blank'>@Witby</a>",
-			'March 2022 - August 2022',
-			"Participated in the <span class='text-slate-200'>development of a mobile application using React Native </span>, with a particular emphasis on enhancing the mobile front end. Work conducted as part of a collaborative partnership between the university and witby.",
+		equanima: [
+			"Cofounder / Project Lead <a class='text-slate-200'>@Equanima</a>",
+			'January 2025 - Present',
+			"Lead multidisciplinary teams of healthcare professionals (physiotherapy, medicine, psychology, nutrition), supporting the <span class='text-slate-200'>automation of internal processes</span>.",
+			"Built the <span class='text-slate-200'>scheduling system</span> for patients, professionals, and admins: appointment booking, patient records, payment tracking, automatic reminders, and task automation across integrated systems.",
+			"Contribute to technical development and management of software projects using <span class='text-slate-200'>Django</span> backends, databases, testing, and process automation.",
 		],
 		ecorima: [
-			"Part-time Software Engineer <a class='text-primary' href='https://ecorima.cl/' target='_blank'>@Ecorima</a>",
+			"Software Engineer <a class='text-primary' href='https://ecorima.cl/' target='_blank'>@Ecorima</a>",
 			'September 2023 - July 2024',
-			"<span class='text-slate-200'>Developed and mantained platform </span> to manage and register incomes and expenses of the company's projects. This including the front end and back end, as well as all the deployment.",
-			"Integrated platform with <span class='text-slate-200'>PDF reader</span>, allowing to automatically read and register the information of the company's invoices.",
+			"<span class='text-slate-200'>Developed and maintained a platform</span> to manage construction project expenses and income, with automated PDF data extraction using Python and PostgreSQL.",
 		],
 		isaviz: [
 			"Software Engineer and Cofounder <a class='text-slate-200'>@Isaviz</a>",
 			'November 2023 - May 2024',
-			"Worked on <a class='text-primary' href='https://www.precirelab.cl/home' target='_blank'>platform development</a> for pricing, accreditation, sampling, test taking and management of reports in the laboratory testing area, focusing in the front-end.",
-			"Developed <a class='text-primary' href='https://www.precirelab.cl/login' target='_blank'>landing page</a> for the company's website.",
+			"Worked on <a class='text-primary' href='https://www.precirelab.cl/home' target='_blank'>platform development</a> for pricing, accreditation, sampling, test taking and management of reports in the laboratory testing area, using Vue/Vuetify.",
+			"Developed <a class='text-primary' href='https://www.precirelab.cl/login' target='_blank'>landing page</a> for the company's website and led teams following SOLID design patterns.",
+		],
+		consiliumbots: [
+			"Software Engineer <a class='text-primary' href='https://www.consiliumbots.com/' target='_blank'>@Consiliumbots</a>",
+			'December 2021 - September 2023',
+			"Contributed in <span class='text-slate-200'>developing high-quality front-end informative primers</span> for students who recently took the PTU test (later PAES) and <span class='text-slate-200'>developed Python testing scripts</span> due to it's high demand in a very short period of time.",
+			"Second iteration of primers with migration of serverless backends to Django, Slack messaging bots, Factory Boy test data, and Locust load testing.",
+			'Collaborated in the development of DFM, platform that allows students to explore different career paths and learn about different professions, while reducing school exclusion and opening opportunities to access higher education.',
+			"Contributed in the <span class='text-slate-200'>development of a Chatbot</span>, tool that allowed students to ask questions about their future careers and get answers in real time, integrating it with OpenAI.",
 		],
 	});
 
 	// selected work experience
-	const selectedExperience = ref('consiliumbots');
+	const selectedExperience = ref('equanima');
 
 	// set selected experience
 	const setSelectedExperience = (experience) => {

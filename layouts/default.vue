@@ -100,7 +100,7 @@
 
 	const setActiveSection = (section) => {
 		activeSection.value = section;
-		layoutStore.setSelectedSection(section);
+		layoutStore.requestScrollToSection(section);
 		closeMenu();
 	};
 

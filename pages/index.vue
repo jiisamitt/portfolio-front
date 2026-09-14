@@ -5,6 +5,7 @@
 		:class="
 			['mobile', 'tablet'].includes(layoutStore.screenSize) ? '' : 'px-32'
 		"
+		id="home"
 	>
 		<p
 			class="text-slate-400 font-mono"
@@ -35,7 +36,7 @@
 			<span class="text-primary text-nowrap">full-stack engineer</span>.
 		</h2>
 		<button
-			class="px-4 py-2 mt-10 text-slate-200 rounded-lg border-2 w-fit font-mono my-button transition duration-500 hover:scale-105"
+			class="px-4 py-2 mt-10 rounded-lg border-2 w-fit font-mono my-button text-primary border-primary transition duration-500 hover:scale-105"
 			@click="downloadResume()"
 		>
 			Check Resume
@@ -72,7 +73,7 @@
 	import Contact from '../sections/Contact.vue';
 	import resume from '@/assets/resume-english.pdf';
 	import { useLayoutStore } from '../store/LayoutStore';
-	import { watch, onMounted, ref } from 'vue';
+	import { onMounted, onUnmounted, watch } from 'vue';
 
 	// Download resume from assets
 	const downloadResume = () => {
@@ -83,16 +84,9 @@
 	};
 
 	const layoutStore = useLayoutStore();
-	watch(
-		() => layoutStore.selectedSection,
-		(newVal) => {
-			if (newVal) {
-				scrollToSection(newVal);
-			}
-		}
-	);
+	const sectionIds = ['home', 'about', 'experience', 'contact'];
+	let sectionObserver = null;
 
-	// On click, scroll to section
 	const scrollToSection = (section) => {
 		const el = document.getElementById(section);
 		if (el) {
@@ -100,45 +94,23 @@
 		}
 	};
 
-	// Constantly check on what section the user is
-	/*
-	const main = ref(null);
-	const checkSection = () => {
-		const rect = main.value.getBoundingClientRect();
-		const y = rect.top;
-		// If its in about, set active section to about
-		const aboutEl = document
-			.getElementById('about')
-			.getBoundingClientRect().top;
-		const experienceEl = document
-			.getElementById('experience')
-			.getBoundingClientRect().top;
-		//const projectsEl = document
-		//	.getElementById('projects')
-		//	.getBoundingClientRect().top;
-		const contactEl = document
-			.getElementById('contact')
-			.getBoundingClientRect().top;
-		if (-y >= aboutEl + 400) {
-			layoutStore.setSelectedSection('about');
+	// Scroll only on nav click (scroll-spy updates selectedSection without scrolling)
+	watch(
+		() => layoutStore.scrollToSection,
+		(section) => {
+			if (section) {
+				scrollToSection(section);
+				layoutStore.clearScrollToSection();
+			}
 		}
-		if (-y >= experienceEl + 400) {
-			layoutStore.setSelectedSection('experience');
-		}
-		if (-y >= contactEl + 400) {
-			layoutStore.setSelectedSection('contact');
-		}
-	};
-	*/
+	);
 
-	// On mounted, scroll should be on top
 	onMounted(() => {
 		window.scrollTo(0, 0);
-		//window.addEventListener('scroll', checkSection);
 
-		// Get all sections hidden, then show them when you scroll through them
+		// Reveal sections on scroll
 		const hiddenElements = document.querySelectorAll('.hide');
-		const observer = new IntersectionObserver((entries) => {
+		const revealObserver = new IntersectionObserver((entries) => {
 			entries.forEach((entry) => {
 				if (entry.isIntersecting) {
 					entry.target.classList.remove('hide');
@@ -147,14 +119,45 @@
 			});
 		});
 		hiddenElements.forEach((element) => {
-			observer.observe(element);
+			revealObserver.observe(element);
 		});
+
+		// Mark navbar for the section currently in view
+		sectionObserver = new IntersectionObserver(
+			(entries) => {
+				const visible = entries
+					.filter((entry) => entry.isIntersecting)
+					.sort((a, b) => b.intersectionRatio - a.intersectionRatio);
+
+				if (visible.length > 0) {
+					const id = visible[0].target.id;
+					layoutStore.setActiveSection(id === 'home' ? '' : id);
+				}
+			},
+			{
+				root: null,
+				rootMargin: '-35% 0px -45% 0px',
+				threshold: [0.1, 0.25, 0.5, 0.75],
+			}
+		);
+
+		sectionIds.forEach((id) => {
+			const el = document.getElementById(id);
+			if (el) sectionObserver.observe(el);
+		});
+	});
+
+	onUnmounted(() => {
+		if (sectionObserver) sectionObserver.disconnect();
 	});
 </script>
 <style>
-	.my-button:hover {
+	.my-button {
 		border-color: #be92b7;
 		color: #be92b7;
+	}
+	.my-button:hover {
+		background-color: #be92b733;
 	}
 	.my-button:active {
 		background-color: #be92b7;

@@ -29,16 +29,34 @@ export const useLayoutStore = defineStore('layout', () => {
 		window.removeEventListener('resize', handleResize);
 	});
 
-	// Selected section
-	const selectedSection = ref('home');
+	// Selected section highlighted in navbar
+	const selectedSection = ref('');
+	// Section to scroll to after a nav click (cleared after scrolling)
+	const scrollToSection = ref('');
 
-	const setSelectedSection = (section) => {
+	const setActiveSection = (section) => {
 		selectedSection.value = section;
 	};
+
+	const requestScrollToSection = (section) => {
+		selectedSection.value = section;
+		scrollToSection.value = section;
+	};
+
+	const clearScrollToSection = () => {
+		scrollToSection.value = '';
+	};
+
+	// Backwards-compatible alias used by older callers
+	const setSelectedSection = requestScrollToSection;
 
 	return {
 		screenSize,
 		selectedSection,
+		scrollToSection,
+		setActiveSection,
+		requestScrollToSection,
+		clearScrollToSection,
 		setSelectedSection,
 	};
 });
